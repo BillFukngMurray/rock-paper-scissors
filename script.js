@@ -34,31 +34,38 @@ function playRound(playerSelection, computerSelection) {
     computerSelection.toLowerCase();
 
     if (playerSelection === "rock" && computerSelection === "paper") {
-        alert("You lose! Paper beats Rock");
+        // alert("You lose! Paper beats Rock");
+        document.getElementById('result').textContent = "You lose! Paper beats Rock";
         return "Lose";
 
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        alert("You win! Rock beats Scissors");
+        //alert("You win! Rock beats Scissors");
+        document.getElementById('result').textContent = "You win! Rock beats Scissors";
         return "Win";
 
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        alert("You win! Paper beats Rock");
+        //alert("You win! Paper beats Rock");
+        document.getElementById('result').textContent = "You win! Paper beats Rock";
         return "Win";
 
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        alert("You lose! Scissors beats Paper");
+        //alert("You lose! Scissors beats Paper");
+        document.getElementById('result').textContent = "You lose! Scissors beats Paper"
         return "Lose";
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        alert("You Win! Scissors beats Paper");
+        //alert("You Win! Scissors beats Paper");
+        document.getElementById('result').textContent = "You Win! Scissors beats Paper"
         return "Lose";
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-        alert("You Lose! Rock beats Scissors");
+       // alert("You Lose! Rock beats Scissors");
+       document.getElementById('result').textContent = "You Lose! Rock beats Scissors"
         return "Lose";
 
     } else if (playerSelection === computerSelection) {
-        alert("It's a Tie!");
+        //alert("It's a Tie!");
+        document.getElementById('result').textContent = "It's a Tie!"
         return "Tie";
     }
 
@@ -71,9 +78,6 @@ function updateScores (playerSelection, computerSelection){
 
     document.getElementById('compScore').textContent = computerScore;
     document.getElementById('playerScore').textContent = playerScore;
-
-   
-
 }
 
 
@@ -92,7 +96,7 @@ function game() {
                 break;
             case "Lose": computerScore++;
                 break;
-            case "Tie": playerScore++, computerScore++;
+            case "Tie": 
                 break;
         }
         console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
