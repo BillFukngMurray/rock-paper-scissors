@@ -59,8 +59,8 @@ function playRound(playerSelection, computerSelection) {
         return "Lose";
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-       // alert("You Lose! Rock beats Scissors");
-       document.getElementById('result').textContent = "You Lose! Rock beats Scissors"
+        // alert("You Lose! Rock beats Scissors");
+        document.getElementById('result').textContent = "You Lose! Rock beats Scissors"
         return "Lose";
 
     } else if (playerSelection === computerSelection) {
@@ -69,12 +69,11 @@ function playRound(playerSelection, computerSelection) {
         return "Tie";
     }
 
-       
 
 }
 
 
-function updateScores (playerSelection, computerSelection){
+function updateScores(playerSelection, computerSelection) {
 
     document.getElementById('compScore').textContent = computerScore;
     document.getElementById('playerScore').textContent = playerScore;
@@ -96,15 +95,19 @@ function game() {
                 break;
             case "Lose": computerScore++;
                 break;
-            case "Tie": 
+            case "Tie":
                 break;
         }
-        console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
-            + `; computerScore = ` + computerScore)
-
+       
         updateScores(playerSelection, computerSelection);
+        
+        if(playerScore ==5 || computerScore == 5){
+            getWinner();
+        }
 
     }));
+
+   
 
     //getWinner();
 
