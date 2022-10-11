@@ -1,6 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
+const buttons = document.querySelectorAll('.btn');
 
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3) + 1;
@@ -29,7 +30,6 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
     computerSelection.toLowerCase();
-    // console.log("computerSelection " + computerSelection);
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         alert("You lose! Paper beats Rock");
@@ -61,28 +61,42 @@ function playRound(playerSelection, computerSelection) {
     }
 
 }
+
+
+
+
 function game() {
 
     // for (let i = 0; i < 5; i++) {
+    // let playerSelection = getPlayerChoice();
+    buttons.forEach(button => button.addEventListener('click', (e) => {
+        playerSelection = e.target.id;
 
-    let playerSelection = getPlayerChoice();
-    let computerSelection = getComputerChoice();
+        let computerSelection = getComputerChoice();
 
-    let result = playRound(playerSelection, computerSelection);
+        let result = playRound(playerSelection, computerSelection);
 
-    switch (result) {
-        case "Win": playerScore++;
-            break;
-        case "Lose": computerScore++;
-            break;
-        case "Tie": playerScore++, computerScore++;
-            break;
-    }
-    console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
-        + `; computerScore = ` + computerScore)
+        switch (result) {
+            case "Win": playerScore++;
+                break;
+            case "Lose": computerScore++;
+                break;
+            case "Tie": playerScore++, computerScore++;
+                break;
+        }
+        console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
+            + `; computerScore = ` + computerScore)
+
+        //    console.log(playerSelection);
+
+    }));
+
+
+
+
     // }
 
-    getWinner();
+    //getWinner();
 
 }
 
@@ -117,19 +131,9 @@ function getWinner() {
 //     }));
 // }
 
-function checkButtons() {
-
-    const buttons = document.querySelectorAll('.btn');
-
-    buttons.forEach(button => button.addEventListener('click', (e) =>{
-        playerSelection = e.target.id;
-        console.log(playerSelection);
-    }));
-
-}
 
 //checkButton();
 //checkButton2();
-checkButtons();
+//getUserInput();
 //getPlayerChoice();
-  //game();
+game();
