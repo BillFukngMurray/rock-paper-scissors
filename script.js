@@ -21,10 +21,10 @@ function getComputerChoice() {
 
 }
 
-function getPlayerChoice() {
-    let choice = prompt("Rock, Paper or Scissors").toLowerCase();
-    return choice;
-}
+// function getPlayerChoice() {
+//     let choice = prompt("Rock, Paper or Scissors").toLowerCase();
+//     return choice;
+// }
 
 function playRound(playerSelection, computerSelection) {
 
@@ -99,15 +99,37 @@ function getWinner() {
     }
 }
 
-function checkButton() {
+// function checkButton() {
+
+//     const buttons = document.querySelectorAll('.btn');
+
+//     buttons.forEach(button => button.addEventListener('click', () => {
+//         alert(button.id);
+//     }));
+
+// }
+
+// function checkButton2() {
+//     const buttons2 = document.querySelectorAll('.btn');
+
+//     buttons2.forEach(button => button.addEventListener('click', function (e) {
+//         console.log(e.target);
+//     }));
+// }
+
+function checkButtons() {
 
     const buttons = document.querySelectorAll('.btn');
 
-    buttons.forEach(button => button.addEventListener('click', () => {
-        alert(button.id);
+    buttons.forEach(button => button.addEventListener('click', (e) =>{
+        playerSelection = e.target.id;
+        console.log(playerSelection);
     }));
 
 }
 
 //checkButton();
-  game();
+//checkButton2();
+checkButtons();
+//getPlayerChoice();
+  //game();
