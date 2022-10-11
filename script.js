@@ -21,7 +21,6 @@ function getComputerChoice() {
         // default: console.log("ERROR");
         default: return "ERROR";
     }
-
 }
 
 // function getPlayerChoice() {
@@ -68,8 +67,6 @@ function playRound(playerSelection, computerSelection) {
         document.getElementById('result').textContent = "It's a Tie!"
         return "Tie";
     }
-
-
 }
 
 
@@ -78,8 +75,6 @@ function updateScores(playerSelection, computerSelection) {
     document.getElementById('compScore').textContent = computerScore;
     document.getElementById('playerScore').textContent = playerScore;
 }
-
-
 
 function game() {
 
@@ -98,18 +93,14 @@ function game() {
             case "Tie":
                 break;
         }
-       
+
         updateScores(playerSelection, computerSelection);
-        
-        if(playerScore ==5 || computerScore == 5){
+
+        if (playerScore == 5 || computerScore == 5) {
             getWinner();
         }
 
     }));
-
-   
-
-    //getWinner();
 
 }
 
