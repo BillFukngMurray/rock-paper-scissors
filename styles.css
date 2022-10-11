@@ -1,0 +1,27 @@
+*{
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0px;
+}
+
+
+.points{
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.playerButtons{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin: 20px;
+    padding: 5px;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
