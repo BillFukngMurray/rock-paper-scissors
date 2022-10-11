@@ -98,6 +98,7 @@ function game() {
 
         if (playerScore == 5 || computerScore == 5) {
             getWinner();
+            resetGame();
         }
 
     }));
@@ -115,6 +116,17 @@ function getWinner() {
     } else {
         alert("Computer Won! Better luck next time");
     }
+}
+
+function resetGame(){
+
+    playerScore = 0;
+    computerScore = 0;
+    playerSelection = null;
+    computerSelection = null;
+    document.getElementById('result').textContent = "";
+    updateScores();
+    
 }
 
 game();
