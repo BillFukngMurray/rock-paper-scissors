@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+let rounds = 0;
+
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3) + 1;
 
@@ -57,32 +61,26 @@ function playRound(playerSelection, computerSelection) {
     }
 
 }
-let playerScore = 0;
-let computerScore = 0;
-
 function game() {
 
-    // let playerScore = 0;
-    // let computerScore = 0;
+    // for (let i = 0; i < 5; i++) {
 
-    for (let i = 0; i < 5; i++) {
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
 
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
+    let result = playRound(playerSelection, computerSelection);
 
-        let result = playRound(playerSelection, computerSelection);
-
-        switch (result) {
-            case "Win": playerScore++;
-                break;
-            case "Lose": computerScore++;
-                break;
-            case "Tie": playerScore++, computerScore++;
-                break;
-        }
-        console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
-            + `; computerScore = ` + computerScore)
+    switch (result) {
+        case "Win": playerScore++;
+            break;
+        case "Lose": computerScore++;
+            break;
+        case "Tie": playerScore++, computerScore++;
+            break;
     }
+    console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
+        + `; computerScore = ` + computerScore)
+    // }
 
     getWinner();
 
@@ -101,4 +99,15 @@ function getWinner() {
     }
 }
 
-game();
+function checkButton() {
+
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(button => button.addEventListener('click', () => {
+        alert(button.id);
+    }));
+
+}
+
+//checkButton();
+  game();
