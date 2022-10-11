@@ -2,6 +2,8 @@ let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
 const buttons = document.querySelectorAll('.btn');
+// const displayCompScore = document.getElementById('compScore');
+// const displayPlayerScore = document.getElementById('playerScore');
 
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3) + 1;
@@ -60,15 +62,24 @@ function playRound(playerSelection, computerSelection) {
         return "Tie";
     }
 
+       
+
 }
 
+
+function updateScores (playerSelection, computerSelection){
+
+    document.getElementById('compScore').textContent = computerScore;
+    document.getElementById('playerScore').textContent = playerScore;
+
+   
+
+}
 
 
 
 function game() {
 
-    // for (let i = 0; i < 5; i++) {
-    // let playerSelection = getPlayerChoice();
     buttons.forEach(button => button.addEventListener('click', (e) => {
         playerSelection = e.target.id;
 
@@ -87,14 +98,9 @@ function game() {
         console.log(`playerSelection = ` + playerSelection + `; computerSelection = ` + computerSelection + `; Result = ` + result + `; playerScore = ` + playerScore
             + `; computerScore = ` + computerScore)
 
-        //    console.log(playerSelection);
+        updateScores(playerSelection, computerSelection);
 
     }));
-
-
-
-
-    // }
 
     //getWinner();
 
@@ -113,27 +119,4 @@ function getWinner() {
     }
 }
 
-// function checkButton() {
-
-//     const buttons = document.querySelectorAll('.btn');
-
-//     buttons.forEach(button => button.addEventListener('click', () => {
-//         alert(button.id);
-//     }));
-
-// }
-
-// function checkButton2() {
-//     const buttons2 = document.querySelectorAll('.btn');
-
-//     buttons2.forEach(button => button.addEventListener('click', function (e) {
-//         console.log(e.target);
-//     }));
-// }
-
-
-//checkButton();
-//checkButton2();
-//getUserInput();
-//getPlayerChoice();
 game();
